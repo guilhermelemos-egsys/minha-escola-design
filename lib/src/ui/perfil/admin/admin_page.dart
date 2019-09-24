@@ -3,8 +3,6 @@ import 'package:design/src/ui/colors/minha_escola_colors.dart' as theme;
 import 'package:design/src/ui/perfil/admin/avaliacoes/avaliacoes_admin_page.dart';
 import 'package:design/src/ui/perfil/admin/disciplinas/disciplinas_admin_page.dart';
 import 'package:design/src/ui/perfil/admin/horarios/horarios_admin_page.dart';
-import 'package:design/src/ui/perfil/admin/periodos/periodos_admin_page.dart';
-import 'package:design/src/ui/perfil/admin/tarefas/tarefas_admin_page.dart';
 import 'package:design/src/ui/perfil/admin/tipos_de_tarefa/tipos_da_tarefa.dart';
 import 'package:design/src/ui/perfil/admin/usuarios/usuarios_admin_page.dart';
 import 'package:design/src/ui/widgets/custom_shape_clipper.dart';
@@ -26,15 +24,9 @@ class _AdminPageState extends State<AdminPage> {
           titulo: "Horários",
           onclick: _moveToHorarios),
       ItemListaMenu(
-          icone: Icons.assignment, titulo: "Tarefas", onclick: _moveToTarefas),
-      ItemListaMenu(
           icone: Icons.description,
           titulo: "Tipos de Tarefa",
           onclick: _moveToTiposDeTarefa),
-      ItemListaMenu(
-          icone: Icons.date_range,
-          titulo: "Períodos",
-          onclick: _moveToPeriodos),
       ItemListaMenu(
           icone: Icons.import_contacts,
           titulo: "Disciplinas",
@@ -113,13 +105,6 @@ class _AdminPageState extends State<AdminPage> {
         );
       };
 
-  Function get _moveToTarefas => () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => TarefasAdminPage()),
-        );
-      };
-
   Function get _moveToTiposDeTarefa => () {
         Navigator.push(
           context,
@@ -131,13 +116,6 @@ class _AdminPageState extends State<AdminPage> {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => DisciplinasAdminPage()),
-        );
-      };
-
-  Function get _moveToPeriodos => () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => PeriodosAdminPage()),
         );
       };
 

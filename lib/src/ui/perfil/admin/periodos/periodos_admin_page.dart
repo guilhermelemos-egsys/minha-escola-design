@@ -20,15 +20,15 @@ class _PeriodosAdminPageState extends State<PeriodosAdminPage> {
   
   List<Periodo> _periodos = [
     Periodo(
-        descricao: "1º Bimestre",
+        descricao: "1º Trimestre",
         dataInicio: DateTime.now(),
         dataFim: DateTime.now().add(Duration(days: 120))),
     Periodo(
-        descricao: "2º Bimestre",
+        descricao: "2º Trimestre",
         dataInicio: DateTime.now(),
         dataFim: DateTime.now().add(Duration(days: 120))),
     Periodo(
-        descricao: "3º Bimestre",
+        descricao: "3º Trimestre",
         dataInicio: DateTime.now(),
         dataFim: DateTime.now().add(Duration(days: 120))),
   ];

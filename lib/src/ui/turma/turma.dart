@@ -3,6 +3,7 @@ import 'package:design/src/ui/turma/avisos/avisos.dart';
 import 'package:design/src/ui/turma/conteudo_aula/conteudo_aula_page.dart';
 import 'package:design/src/ui/turma/horarios/horarios.dart';
 import 'package:design/src/ui/turma/tarefas/tarefas.dart';
+import 'package:design/src/ui/turma/usuarios/usuarios_page.dart';
 import 'package:flutter/material.dart';
 
 class TurmaPage extends StatefulWidget {
@@ -29,7 +30,9 @@ class _TurmaPageState extends State<TurmaPage> {
       ItemListaMenu(
           icone: Icons.slideshow,
           titulo: "Conteúdo de Aula",
-          onclick: _moveToConteudoDeAula)
+          onclick: _moveToConteudoDeAula),
+      ItemListaMenu(
+          icone: Icons.group, titulo: "Usuários", onclick: _moveToUsuarios)
     ];
     super.initState();
   }
@@ -80,6 +83,13 @@ class _TurmaPageState extends State<TurmaPage> {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => ConteudoAulaPage()),
+        );
+      };
+
+  Function get _moveToUsuarios => () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => UsuariosPage()),
         );
       };
 }

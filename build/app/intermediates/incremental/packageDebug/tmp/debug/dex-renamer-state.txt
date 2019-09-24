@@ -1,4 +1,4 @@
-#Tue Sep 24 17:48:54 BRT 2019
+#Tue Sep 24 19:31:29 BRT 2019
 base.0=/home/dev0002/projects/minha-escola-design/build/app/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

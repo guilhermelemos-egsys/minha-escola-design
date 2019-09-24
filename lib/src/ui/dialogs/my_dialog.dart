@@ -22,13 +22,8 @@ class MyDialog extends StatelessWidget {
       ),
       contentPadding:
           const EdgeInsets.only(left: 16.0, bottom: 16.0, right: 16.0),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Divider(height: 0.0),
-          SizedBox(height: 8.0),
-          content
-        ],
+      content: SingleChildScrollView(
+        child: content,
       ),
       actions: <Widget>[
         RaisedButton(

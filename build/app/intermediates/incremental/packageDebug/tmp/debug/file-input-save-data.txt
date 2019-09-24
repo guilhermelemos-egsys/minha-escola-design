@@ -1,11 +1,11 @@
 #Internal package file, do not edit.
-#Tue Sep 24 17:48:55 BRT 2019
+#Tue Sep 24 19:31:31 BRT 2019
 4.path=lib/x86/libflutter.so
 13.baseType=DIRECTORY
 8.set=ASSET
 6.path=lib/armeabi-v7a/libflutter.so
 0.baseType=DIRECTORY
-10.path=flutter_assets/isolate_snapshot_data
+10.path=flutter_assets/images/prata.png
 5.baseType=DIRECTORY
 1.base=/home/dev0002/projects/minha-escola-design/build/app/intermediates/merged_assets/debug/mergeDebugAssets/out
 8.path=flutter_assets/FontManifest.json
@@ -35,7 +35,7 @@
 5.path=lib/x86_64/libflutter.so
 0.base=/home/dev0002/projects/minha-escola-design/build/app/intermediates/merged_assets/debug/mergeDebugAssets/out
 7.path=flutter_assets/images/bronze.png
-11.path=flutter_assets/images/prata.png
+11.path=flutter_assets/isolate_snapshot_data
 9.path=flutter_assets/fonts/MaterialIcons-Regular.ttf
 6.set=NATIVE_RESOURCE
 2.base=/home/dev0002/projects/minha-escola-design/build/app/intermediates/merged_assets/debug/mergeDebugAssets/out

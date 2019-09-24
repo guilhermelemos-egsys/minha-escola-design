@@ -1,6 +1,11 @@
+import 'package:design/src/ui/dialogs/my_dialog.dart';
+import 'package:design/src/ui/perfil/admin/disciplinas/disciplinas_admin_page.dart';
 import 'package:design/src/ui/turma/conteudo_aula/conteudo_page.dart';
+import 'package:design/src/ui/turma/conteudo_aula/dialog_adicionar_conteudo.dart';
 import 'package:design/src/ui/widgets/header_pages.dart';
 import 'package:design/src/ui/widgets/my_wrap.dart';
+import 'package:design/src/ui/dialogs/dialog_factory.dart' as dialogFactory;
+import 'package:design/src/ui/colors/minha_escola_colors.dart' as theme;
 import 'package:flutter/material.dart';
 
 class ConteudoAulaPage extends StatefulWidget {
@@ -38,14 +43,46 @@ class _ConteudoAulaPageState extends State<ConteudoAulaPage> {
         ],
         data: "27 Agosto"),
   ];
+
+  List<Disciplina> _disciplinas = [
+    Disciplina("Matematica", "Jose"),
+    Disciplina("Portugues", "Jose"),
+    Disciplina("Ciências", "Jose"),
+    Disciplina("Geografia", "Jose"),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Conteúdo de Aula"),
+        actions: <Widget>[
+          FlatButton(
+            onPressed: () {
+              dialogFactory.showDialog(
+                context,
+                MyDialog(
+                  title: "Adicionar Conteudo",
+                  content: DialogAdicionarConteudo(disciplinas: _disciplinas),
+                  funConfirmar: _cadastrarConteudo,
+                ),
+              );
+            },
+            child: Text(
+              "Adicionar",
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle
+                  .copyWith(color: Colors.white),
+            ),
+          ),
+        ],
       ),
       body: ListView(children: <Widget>[
-        HeaderPage(title: "Conteúdo de aula compartilhado!", subtitle: "Clique sobre um conteúdo para ver seus detalhes...",),
+        HeaderPage(
+          title: "Conteúdo de aula compartilhado!",
+          subtitle: "Clique sobre um conteúdo para ver seus detalhes...",
+        ),
         ..._conteudos.map((conteudo) {
           return _buildItemConteudo(conteudo);
         }).toList(),
@@ -76,7 +113,6 @@ class _ConteudoAulaPageState extends State<ConteudoAulaPage> {
             ),
             child: Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,6 +138,7 @@ class _ConteudoAulaPageState extends State<ConteudoAulaPage> {
                     ),
                   ],
                 ),
+                Spacer(),
                 Icon(
                   Icons.keyboard_arrow_right,
                   color: Colors.grey[700],
@@ -113,6 +150,10 @@ class _ConteudoAulaPageState extends State<ConteudoAulaPage> {
       ),
     );
   }
+
+  Function get _cadastrarConteudo => () {
+        Navigator.pop(context);
+      };
 }
 
 class Conteudo {

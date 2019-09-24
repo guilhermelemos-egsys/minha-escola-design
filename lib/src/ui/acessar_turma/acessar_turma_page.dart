@@ -1,3 +1,4 @@
+import 'package:design/src/ui/adicionar_turma/adicionar_turma_page.dart';
 import 'package:design/src/ui/colors/minha_escola_colors.dart' as theme;
 import 'package:design/src/ui/home/home.dart';
 import 'package:design/src/ui/widgets/custom_shape_clipper.dart';
@@ -14,6 +15,23 @@ class _AcessarTurmaPageState extends State<AcessarTurmaPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Turmas"),
+        actions: <Widget>[
+          FlatButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AdicionarTurmaPage()),
+              );
+            },
+            child: Text(
+              "Adicionar Turma",
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle
+                  .copyWith(color: Colors.white),
+            ),
+          ),
+        ],
       ),
       body: ListView(
         padding: const EdgeInsets.all(8.0),

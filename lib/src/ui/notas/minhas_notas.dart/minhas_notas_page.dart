@@ -34,9 +34,9 @@ class _MinhasNotasPageState extends State<MinhasNotasPage> {
     ];
 
     _periodos = [
-      Periodo(descricao: "1º Bimestre", disciplinas: _disciplinas),
-      Periodo(descricao: "2º Bimestre", disciplinas: _disciplinas),
-      Periodo(descricao: "3º Bimestre", disciplinas: _disciplinas)
+      Periodo(descricao: "1º Trimestre", disciplinas: _disciplinas),
+      Periodo(descricao: "2º Trimestre", disciplinas: _disciplinas),
+      Periodo(descricao: "3º Trimestre", disciplinas: _disciplinas)
     ];
     super.initState();
   }
