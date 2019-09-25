@@ -4,6 +4,12 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key></key>
+	<string></string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Para adicionar arquivos a sua aula, precisamos de permissão</string>
+	<key>CFBundleDisplayName</key>
+	<string>Minha Escola</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
