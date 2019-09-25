@@ -1,11 +1,12 @@
+import 'package:design/src/domain/model/arquivo.dart';
+import 'package:design/src/domain/model/conteudo.dart';
+import 'package:design/src/domain/model/disciplina.dart';
 import 'package:design/src/ui/dialogs/my_dialog.dart';
-import 'package:design/src/ui/perfil/admin/disciplinas/disciplinas_admin_page.dart';
 import 'package:design/src/ui/turma/conteudo_aula/conteudo_page.dart';
 import 'package:design/src/ui/turma/conteudo_aula/dialog_adicionar_conteudo.dart';
 import 'package:design/src/ui/widgets/header_pages.dart';
 import 'package:design/src/ui/widgets/my_wrap.dart';
 import 'package:design/src/ui/dialogs/dialog_factory.dart' as dialogFactory;
-import 'package:design/src/ui/colors/minha_escola_colors.dart' as theme;
 import 'package:flutter/material.dart';
 
 class ConteudoAulaPage extends StatefulWidget {
@@ -24,7 +25,7 @@ class _ConteudoAulaPageState extends State<ConteudoAulaPage> {
           Arquivo(tag: "conteudo-1-imagem-2", icone: Icons.photo_library),
           Arquivo(tag: "conteudo-1-pdf-1", icone: Icons.picture_as_pdf),
         ],
-        data: "3 Setembro"),
+        data: "3 de setembro"),
     Conteudo(
         titulo: "Foto do Caderno da Luisa",
         usuario: "Marco Antônio",
@@ -33,7 +34,7 @@ class _ConteudoAulaPageState extends State<ConteudoAulaPage> {
           Arquivo(tag: "conteudo-2-imagem-1", icone: Icons.photo_library),
           Arquivo(tag: "conteudo-2-pdf-1", icone: Icons.picture_as_pdf)
         ],
-        data: "3 Setembro"),
+        data: "3 de setembro"),
     Conteudo(
         titulo: "Revisão da P1",
         usuario: "Maria da Silva",
@@ -41,14 +42,15 @@ class _ConteudoAulaPageState extends State<ConteudoAulaPage> {
         arquivos: [
           Arquivo(tag: "conteudo-3-imagem-1", icone: Icons.photo_library)
         ],
-        data: "27 Agosto"),
+        data: "27 de agosto"),
   ];
 
   List<Disciplina> _disciplinas = [
-    Disciplina("Matematica", "Jose"),
-    Disciplina("Portugues", "Jose"),
-    Disciplina("Ciências", "Jose"),
-    Disciplina("Geografia", "Jose"),
+    Disciplina(nome: "Português", nomeProfessor: ""),
+    Disciplina(nome: "Matemática", nomeProfessor: ""),
+    Disciplina(nome: "Ciências", nomeProfessor: ""),
+    Disciplina(nome: "História", nomeProfessor: ""),
+    Disciplina(nome: "Geografia", nomeProfessor: ""),
   ];
 
   @override
@@ -80,8 +82,8 @@ class _ConteudoAulaPageState extends State<ConteudoAulaPage> {
       ),
       body: ListView(children: <Widget>[
         HeaderPage(
-          title: "Conteúdo de aula compartilhado!",
-          subtitle: "Clique sobre um conteúdo para ver seus detalhes...",
+          title: "Conteúdo de aula compartilhado",
+          subtitle: "Poste o conteúdo da aula e ajude seus colegas!",
         ),
         ..._conteudos.map((conteudo) {
           return _buildItemConteudo(conteudo);
@@ -154,22 +156,4 @@ class _ConteudoAulaPageState extends State<ConteudoAulaPage> {
   Function get _cadastrarConteudo => () {
         Navigator.pop(context);
       };
-}
-
-class Conteudo {
-  String titulo;
-  String usuario;
-  String disciplina;
-  List<Arquivo> arquivos;
-  String data;
-
-  Conteudo(
-      {this.titulo, this.usuario, this.disciplina, this.arquivos, this.data});
-}
-
-class Arquivo {
-  String tag;
-  IconData icone;
-
-  Arquivo({this.tag, this.icone});
 }

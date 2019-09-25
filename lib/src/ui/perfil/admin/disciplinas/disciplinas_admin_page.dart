@@ -1,3 +1,4 @@
+import 'package:design/src/domain/model/disciplina.dart';
 import 'package:design/src/ui/colors/minha_escola_colors.dart' as theme;
 import 'package:design/src/ui/dialogs/dialog_factory.dart' as dialogFactory;
 import 'package:design/src/ui/dialogs/my_dialog.dart';
@@ -13,10 +14,11 @@ class DisciplinasAdminPage extends StatefulWidget {
 class _DisciplinasAdminPageState extends State<DisciplinasAdminPage> {
   Color currentColor = Colors.red;
   List<Disciplina> _disciplinas = [
-    Disciplina("Matemática", "José da Silva"),
-    Disciplina("Português", "Maria da Silva"),
-    Disciplina("Geografia", "Camila da Silva"),
-    Disciplina("Ciências", "André da Silva")
+    Disciplina(nome: "Português", nomeProfessor: "José"),
+    Disciplina(nome: "Matemática", nomeProfessor: "Maria"),
+    Disciplina(nome: "Ciências", nomeProfessor: "Camila"),
+    Disciplina(nome: "História", nomeProfessor: "Marcos"),
+    Disciplina(nome: "Geografia", nomeProfessor: "Alice"),
   ];
   @override
   Widget build(BuildContext context) {
@@ -301,11 +303,4 @@ class _DisciplinasAdminPageState extends State<DisciplinasAdminPage> {
   Function get _selecionarCor => () {
         Navigator.pop(context);
       };
-}
-
-class Disciplina {
-  String nome;
-  String nomeProfessor;
-
-  Disciplina(this.nome, this.nomeProfessor);
 }

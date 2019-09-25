@@ -1,6 +1,11 @@
+import 'package:design/src/domain/model/avaliacao.dart';
+import 'package:design/src/domain/model/disciplina.dart';
+import 'package:design/src/domain/model/nota.dart';
+import 'package:design/src/domain/model/periodo.dart';
 import 'package:design/src/ui/colors/minha_escola_colors.dart' as theme;
 import 'package:design/src/ui/dialogs/dialog_factory.dart' as dialogFactory;
 import 'package:design/src/ui/dialogs/my_dialog.dart';
+import 'package:design/src/ui/perfil/admin/avaliacoes/dialog_adicionar_avaliacao.dart';
 import 'package:design/src/ui/widgets/custom_shape_clipper.dart';
 import 'package:design/src/ui/widgets/my_expansion_tile.dart';
 import 'package:design/src/ui/widgets/my_wrap.dart';
@@ -21,13 +26,14 @@ class _AvaliacoesAdminPageState extends State<AvaliacoesAdminPage> {
   Disciplina _disciplina;
 
   List<Avaliacao> _avaliacoes;
+
   @override
   void initState() {
     _avaliacoes = [
-      Avaliacao(descricao: "Prova 1", nota: 7.8),
-      Avaliacao(descricao: "Prova 2", nota: 7.2),
-      Avaliacao(descricao: "Prova 3", nota: 8.1),
-      Avaliacao(descricao: "Prova 4", nota: 9.4)
+      Avaliacao(descricao: "Prova 1"),
+      Avaliacao(descricao: "Prova 2"),
+      Avaliacao(descricao: "Prova 3"),
+      Avaliacao(descricao: "Prova 4")
     ];
 
     _disciplinas = [
@@ -39,9 +45,9 @@ class _AvaliacoesAdminPageState extends State<AvaliacoesAdminPage> {
     ];
 
     _periodos = [
-      Periodo(descricao: "1º Bimestre", disciplinas: _disciplinas),
-      Periodo(descricao: "2º Bimestre", disciplinas: _disciplinas),
-      Periodo(descricao: "3º Bimestre", disciplinas: _disciplinas)
+      Periodo(descricao: "1º Trimestre", disciplinas: _disciplinas),
+      Periodo(descricao: "2º Trimestre", disciplinas: _disciplinas),
+      Periodo(descricao: "3º Trimestre", disciplinas: _disciplinas)
     ];
     super.initState();
   }
@@ -58,7 +64,7 @@ class _AvaliacoesAdminPageState extends State<AvaliacoesAdminPage> {
                 context,
                 MyDialog(
                   title: "Adicionar Avaliação",
-                  content: _buildContentAdicionarAvaliacao(),
+                  content: DialogAdicionarAvaliacao(),
                   funConfirmar: _adicionarAvaliacao,
                 ),
               );
@@ -210,66 +216,6 @@ class _AvaliacoesAdminPageState extends State<AvaliacoesAdminPage> {
     );
   }
 
-  Widget _buildContentAdicionarAvaliacao() {
-    return Form(
-      child: Column(
-        children: <Widget>[
-          TextFormField(
-            decoration: InputDecoration(labelText: "Descrição"),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text("Periodo"),
-              DropdownButton(
-                value: _periodo,
-                hint: Text(_periodoHint),
-                onChanged: ((Periodo periodoSelecionado) {
-                  setState(() {
-                    _periodo = periodoSelecionado;
-                    _periodoHint = _periodo.descricao;
-                  });
-                }),
-                items: _periodos
-                    .map(
-                      (periodo) => DropdownMenuItem(
-                        child: Text(periodo.descricao),
-                        value: periodo,
-                      ),
-                    )
-                    .toList(),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text("Disciplina"),
-              DropdownButton(
-                value: _disciplina,
-                hint: Text(_disciplinaHint),
-                onChanged: ((Disciplina disciplinaSelecionada) {
-                  setState(() {
-                    _disciplina = disciplinaSelecionada;
-                    _disciplinaHint = _disciplina.nome;
-                  });
-                }),
-                items: _disciplinas
-                    .map(
-                      (disciplina) => DropdownMenuItem(
-                        child: Text(disciplina.nome),
-                        value: disciplina,
-                      ),
-                    )
-                    .toList(),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildContentEditarAvaliacao(Avaliacao avaliacao) {
     return Form(
       child: TextFormField(
@@ -294,27 +240,4 @@ class _AvaliacoesAdminPageState extends State<AvaliacoesAdminPage> {
   Function get _excluirAvaliacao => () {
         Navigator.pop(context);
       };
-}
-
-class Periodo {
-  String descricao;
-  DateTime dataInicio;
-  DateTime dataFim;
-  List<Disciplina> disciplinas;
-
-  Periodo({this.descricao, this.dataInicio, this.dataFim, this.disciplinas});
-}
-
-class Disciplina {
-  String nome;
-  List<Avaliacao> avaliacoes;
-
-  Disciplina({this.nome, this.avaliacoes});
-}
-
-class Avaliacao {
-  String descricao;
-  double nota;
-
-  Avaliacao({this.descricao, this.nota});
 }

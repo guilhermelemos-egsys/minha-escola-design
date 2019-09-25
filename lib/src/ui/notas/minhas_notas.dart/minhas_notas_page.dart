@@ -1,8 +1,12 @@
-import 'package:design/src/ui/perfil/admin/avaliacoes/avaliacoes_admin_page.dart';
+import 'package:design/src/domain/model/avaliacao.dart';
+import 'package:design/src/domain/model/disciplina.dart';
+import 'package:design/src/domain/model/nota.dart';
+import 'package:design/src/domain/model/periodo.dart';
 import 'package:design/src/ui/widgets/custom_shape_clipper.dart';
 import 'package:design/src/ui/widgets/my_expansion_tile.dart';
 import 'package:design/src/ui/widgets/my_wrap.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class MinhasNotasPage extends StatefulWidget {
   @override
@@ -14,23 +18,81 @@ class _MinhasNotasPageState extends State<MinhasNotasPage> {
 
   List<Disciplina> _disciplinas = [];
 
-  List<Avaliacao> _avaliacoes = [];
+  List<Avaliacao> _avaliacoesPortugues = [];
+  List<Avaliacao> _avaliacoesMatematica = [];
+  List<Avaliacao> _avaliacoesCiencias = [];
+  List<Avaliacao> _avaliacoesHistoria = [];
+  List<Avaliacao> _avaliacoesGeografia = [];
+
+  Nota _nota1;
+  Nota _nota2;
+  Nota _nota3;
+  Nota _nota4;
+  Nota _nota5;
+  Nota _nota6;
+  Nota _nota7;
+  Nota _nota8;
+  Nota _nota9;
+  Nota _nota10;
+  Nota _nota11;
+  Nota _nota12;
 
   @override
   void initState() {
-    _avaliacoes = [
-      Avaliacao(descricao: "Prova 1", nota: 7.8),
-      Avaliacao(descricao: "Prova 2", nota: 7.2),
-      Avaliacao(descricao: "Prova 3", nota: 8.1),
-      Avaliacao(descricao: "Prova 4", nota: 9.4)
+    _nota1 = Nota(valor: 8.3);
+    _nota2 = Nota(valor: 7.2);
+    _nota3 = Nota(valor: 8.1);
+    _nota4 = Nota(valor: 9.4);
+    _nota5 = Nota(valor: 8.5);
+    _nota6 = Nota(valor: 8.8);
+    _nota7 = Nota(valor: 10);
+    _nota8 = Nota(valor: 9.7);
+    _nota9 = Nota(valor: 8.9);
+    _nota10 = Nota(valor: 7.4);
+    _nota11 = Nota(valor: 8);
+    _nota12 = Nota(valor: 9.1);
+
+    _avaliacoesPortugues = [
+      Avaliacao(descricao: "Prova 1", nota: _nota8),
+      Avaliacao(descricao: "Prova 2", nota: _nota5),
+      Avaliacao(descricao: "Prova 3", nota: _nota12),
+      Avaliacao(descricao: "Prova 4", nota: _nota1)
+    ];
+
+    _avaliacoesMatematica = [
+      Avaliacao(descricao: "Prova 1", nota: _nota7),
+      Avaliacao(descricao: "Prova 2"),
+      Avaliacao(descricao: "Prova 3", nota: _nota7),
+      Avaliacao(descricao: "Prova 4", nota: _nota7)
+    ];
+
+    _avaliacoesCiencias = [
+      Avaliacao(descricao: "Prova 1", nota: _nota7),
+      Avaliacao(descricao: "Prova 2", nota: _nota7),
+      Avaliacao(descricao: "Prova 3", nota: _nota7),
+      Avaliacao(descricao: "Prova 4"),
+    ];
+
+    _avaliacoesHistoria = [
+      Avaliacao(descricao: "Prova 1", nota: _nota2),
+      Avaliacao(descricao: "Prova 2", nota: _nota10),
+      Avaliacao(descricao: "Prova 3", nota: _nota5),
+      Avaliacao(descricao: "Prova 4", nota: _nota5)
+    ];
+
+    _avaliacoesGeografia = [
+      Avaliacao(descricao: "Prova 1", nota: _nota5),
+      Avaliacao(descricao: "Prova 2", nota: _nota6),
+      Avaliacao(descricao: "Prova 3"),
+      Avaliacao(descricao: "Prova 4")
     ];
 
     _disciplinas = [
-      Disciplina(nome: "Português", avaliacoes: _avaliacoes),
-      Disciplina(nome: "Matemática", avaliacoes: _avaliacoes),
-      Disciplina(nome: "Ciências", avaliacoes: _avaliacoes),
-      Disciplina(nome: "História", avaliacoes: _avaliacoes),
-      Disciplina(nome: "Geografia", avaliacoes: _avaliacoes)
+      Disciplina(nome: "Português", avaliacoes: _avaliacoesPortugues),
+      Disciplina(nome: "Matemática", avaliacoes: _avaliacoesMatematica),
+      Disciplina(nome: "Ciências", avaliacoes: _avaliacoesCiencias),
+      Disciplina(nome: "História", avaliacoes: _avaliacoesHistoria),
+      Disciplina(nome: "Geografia", avaliacoes: _avaliacoesGeografia)
     ];
 
     _periodos = [
@@ -101,6 +163,19 @@ class _MinhasNotasPageState extends State<MinhasNotasPage> {
   }
 
   Widget _buildItemDisciplina(Disciplina disciplina) {
+    NumberFormat numberFormat = NumberFormat("0.0");
+    double media = 0;
+    int cont = 0;
+    bool semNota = false;
+    for (var avaliacao in disciplina.avaliacoes) {
+      if (avaliacao.nota != null) {
+        media += avaliacao.nota.valor;
+        cont++;
+      } else {
+        semNota = true;
+      }
+    }
+    media = media / cont;
     return Padding(
       padding: const EdgeInsets.only(left: 8.0, right: 8.0),
       child: Card(
@@ -112,18 +187,26 @@ class _MinhasNotasPageState extends State<MinhasNotasPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(disciplina.nome, style: Theme.of(context).textTheme.title),
-                SizedBox(height: 4.0),
                 Row(
                   children: <Widget>[
-                    Text("Média", style: Theme.of(context).textTheme.subhead),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 2.0),
-                      child: MyWrap(
-                        conteudo: "8,6",
-                        color: Colors.grey,
-                      ),
-                    ),
+                    Text(disciplina.nome,
+                        style: Theme.of(context).textTheme.title),
+                    SizedBox(width: 2.0),
+                    semNota
+                        ? Text("*",
+                            style: Theme.of(context)
+                                .textTheme
+                                .title
+                                .copyWith(color: Colors.red))
+                        : Text("")
+                  ],
+                ),
+                SizedBox(height: 8.0),
+                Row(
+                  children: <Widget>[
+                    Text("Média"),
+                    SizedBox(width: 4.0),
+                    MyWrap(conteudo: numberFormat.format(media)),
                   ],
                 ),
               ],
@@ -157,13 +240,13 @@ class _MinhasNotasPageState extends State<MinhasNotasPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(avaliacao.descricao, style: Theme.of(context).textTheme.subhead),
-          Text(
-            avaliacao.nota.toString(),
-            style: Theme.of(context)
-                .textTheme
-                .subtitle
-                .copyWith(color: Theme.of(context).primaryColorDark),
-          ),
+          avaliacao.nota != null
+              ? MyWrap(conteudo: avaliacao.nota.valor.toString())
+              : InkWell(
+                  borderRadius: BorderRadius.circular(8.0),
+                  onTap: () {},
+                  child: MyWrap(conteudo: "Adicionar Nota", color: Colors.red)
+                )
         ],
       ),
     );

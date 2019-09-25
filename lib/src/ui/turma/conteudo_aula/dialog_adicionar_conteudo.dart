@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:design/src/ui/perfil/admin/disciplinas/disciplinas_admin_page.dart';
+import 'package:design/src/domain/model/disciplina.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -48,6 +48,7 @@ class _DialogAdicionarConteudoState extends State<DialogAdicionarConteudo> {
         SizedBox(height: 16.0),
         Text(
           "Insira um PDF",
+          style: Theme.of(context).textTheme.title,
         ),
         IconButton(
           icon: Icon(
@@ -59,10 +60,11 @@ class _DialogAdicionarConteudoState extends State<DialogAdicionarConteudo> {
           },
         ),
         Text(
-          _path == null ? 'sem PDF' : _path,
+          _path == null ? 'Nenhum PDF selecionado' : _path,
           maxLines: 1,
           softWrap: true,
           overflow: TextOverflow.ellipsis,
+          style: Theme.of(context).textTheme.body2,
         ),
       ],
     );
@@ -77,6 +79,7 @@ class _DialogAdicionarConteudoState extends State<DialogAdicionarConteudo> {
         SizedBox(height: 16.0),
         Text(
           "Insira uma imagem",
+          style: Theme.of(context).textTheme.title,
         ),
         IconButton(
           icon: Icon(
@@ -89,7 +92,8 @@ class _DialogAdicionarConteudoState extends State<DialogAdicionarConteudo> {
         ),
         _image == null
             ? Text(
-                "Insira uma imagem",
+                "Nenhuma imagem selecionada",
+                style: Theme.of(context).textTheme.body2,
               )
             : Image.file(_image)
       ],
@@ -111,7 +115,7 @@ class _DialogAdicionarConteudoState extends State<DialogAdicionarConteudo> {
       items: widget.disciplinas
           .map((value) => DropdownMenuItem(
                 child: Text(
-                  "${value.nome} ${" | "} ${value.nomeProfessor}",
+                  "${value.nome}",
                   style: TextStyle(fontSize: 14.0),
                 ),
                 value: value,

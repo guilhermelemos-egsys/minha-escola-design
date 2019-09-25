@@ -1,5 +1,6 @@
+import 'package:design/src/domain/model/disciplina.dart';
 import 'package:design/src/ui/dialogs/my_dialog.dart';
-import 'package:design/src/ui/perfil/admin/disciplinas/disciplinas_admin_page.dart';
+import 'package:design/src/ui/perfil/admin/horarios/dialog_adicionar_horario.dart';
 import 'package:design/src/ui/turma/horarios/horarios.dart';
 import 'package:flutter/material.dart';
 import 'package:design/src/ui/dialogs/dialog_factory.dart' as dialogFactory;
@@ -10,7 +11,7 @@ class HorariosAdminPage extends StatefulWidget {
 }
 
 class _HorariosAdminPageState extends State<HorariosAdminPage> {
-  List<Horario> _horarios = new List(25);
+  List<Horario> _horarios = new List(30);
 
   List<Horario> _horariosListados = [];
 
@@ -19,10 +20,11 @@ class _HorariosAdminPageState extends State<HorariosAdminPage> {
   Disciplina _disciplina;
 
   List<Disciplina> _disciplinas = [
-    Disciplina("Matemática", "José da Silva"),
-    Disciplina("Português", "Maria da Silva"),
-    Disciplina("Geografia", "Camila da Silva"),
-    Disciplina("Ciências", "André da Silva")
+    Disciplina(nome: "Português", nomeProfessor: ""),
+    Disciplina(nome: "Matemática", nomeProfessor: ""),
+    Disciplina(nome: "Ciências", nomeProfessor: ""),
+    Disciplina(nome: "História", nomeProfessor: ""),
+    Disciplina(nome: "Geografia", nomeProfessor: ""),
   ];
 
   @override
@@ -94,7 +96,7 @@ class _HorariosAdminPageState extends State<HorariosAdminPage> {
             context,
             MyDialog(
               title: "Adicionar Horário",
-              content: _buildContentAdicionarHorario(),
+              content: DialogAdicionarHorario(),
               funConfirmar: _adicionarHorario,
             ),
           );
@@ -108,30 +110,6 @@ class _HorariosAdminPageState extends State<HorariosAdminPage> {
             style: TextStyle(color: Colors.white),
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildContentAdicionarHorario() {
-    return ListTile(
-      title: Text("Disciplina"),
-      trailing: DropdownButton(
-        value: _disciplina,
-        hint: Text(_disciplinaHint),
-        onChanged: ((Disciplina disciplinaSelecionada) {
-          setState(() {
-            _disciplina = disciplinaSelecionada;
-            _disciplinaHint = _disciplina.nome;
-          });
-        }),
-        items: _disciplinas
-            .map(
-              (disciplina) => DropdownMenuItem(
-                child: Text(disciplina.nome),
-                value: disciplina,
-              ),
-            )
-            .toList(),
       ),
     );
   }

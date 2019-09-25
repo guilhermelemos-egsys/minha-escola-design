@@ -1,6 +1,7 @@
 import 'package:design/src/domain/model/item_lista_menu.dart';
 import 'package:design/src/ui/colors/minha_escola_colors.dart' as theme;
 import 'package:design/src/ui/perfil/admin/avaliacoes/avaliacoes_admin_page.dart';
+import 'package:design/src/ui/perfil/admin/avisos/avisos_admin_page.dart';
 import 'package:design/src/ui/perfil/admin/disciplinas/disciplinas_admin_page.dart';
 import 'package:design/src/ui/perfil/admin/horarios/horarios_admin_page.dart';
 import 'package:design/src/ui/perfil/admin/tipos_de_tarefa/tipos_da_tarefa.dart';
@@ -24,15 +25,15 @@ class _AdminPageState extends State<AdminPage> {
           titulo: "Horários",
           onclick: _moveToHorarios),
       ItemListaMenu(
-          icone: Icons.description,
-          titulo: "Tipos de Tarefa",
-          onclick: _moveToTiposDeTarefa),
+          icone: Icons.speaker_notes,
+          titulo: "Avisos Gerais",
+          onclick: _moveToAvisos),
       ItemListaMenu(
           icone: Icons.import_contacts,
           titulo: "Disciplinas",
           onclick: _moveToDisciplinas),
       ItemListaMenu(
-          icone: Icons.assessment ,
+          icone: Icons.assessment,
           titulo: "Avaliações",
           onclick: _moveToAvaliacoes),
       ItemListaMenu(
@@ -72,10 +73,9 @@ class _AdminPageState extends State<AdminPage> {
                     ),
                     Text(
                       "Gerencie sua turma por aqui...",
-                      style: Theme.of(context)
-                          .textTheme
-                          .title
-                          .copyWith(color: theme.secondaryTextColor, fontWeight: FontWeight.normal),
+                      style: Theme.of(context).textTheme.title.copyWith(
+                          color: theme.secondaryTextColor,
+                          fontWeight: FontWeight.normal),
                     )
                   ],
                 ),
@@ -102,6 +102,13 @@ class _AdminPageState extends State<AdminPage> {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => HorariosAdminPage()),
+        );
+      };
+
+  Function get _moveToAvisos => () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => AvisosAdminPage()),
         );
       };
 

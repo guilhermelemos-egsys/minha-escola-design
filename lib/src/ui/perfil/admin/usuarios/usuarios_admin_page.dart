@@ -1,3 +1,4 @@
+import 'package:design/src/domain/model/usuario.dart';
 import 'package:design/src/ui/dialogs/dialog_factory.dart' as dialogFactory;
 import 'package:design/src/ui/colors/minha_escola_colors.dart' as theme;
 import 'package:design/src/ui/dialogs/my_dialog.dart';
@@ -272,14 +273,4 @@ class _UsuariosAdminPageState extends State<UsuariosAdminPage> {
   Function get _excluirUsuario => () {
         Navigator.pop(context);
       };
-}
-
-class Usuario {
-  String nome;
-  String sobrenome;
-  String email;
-  String login;
-  String senha;
-
-  Usuario({this.nome, this.sobrenome, this.email, this.login, this.senha});
 }

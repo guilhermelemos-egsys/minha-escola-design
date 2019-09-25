@@ -1,3 +1,4 @@
+import 'package:design/src/domain/model/periodo.dart';
 import 'package:design/src/ui/dialogs/my_dialog.dart';
 import 'package:design/src/ui/dialogs/dialog_factory.dart' as dialogFactory;
 import 'package:design/src/ui/colors/minha_escola_colors.dart' as theme;

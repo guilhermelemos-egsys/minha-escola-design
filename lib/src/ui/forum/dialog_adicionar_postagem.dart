@@ -13,6 +13,13 @@ class _DialogAdicionarPostagemState extends State<DialogAdicionarPostagem> {
       children: <Widget>[
         TextFormField(
           decoration: InputDecoration(
+            labelText: "Título"
+          ),
+          maxLines: 1,
+          maxLength: 100,
+        ),
+        TextFormField(
+          decoration: InputDecoration(
             labelText: "O que você deseja postar?"
           ),
           maxLines: 3,

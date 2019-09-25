@@ -1,3 +1,4 @@
+import 'package:design/src/domain/model/usuario.dart';
 import 'package:design/src/ui/dialogs/dialog_factory.dart' as dialogFactory;
 import 'package:design/src/domain/model/item_lista_menu.dart';
 import 'package:design/src/ui/dialogs/my_dialog.dart';

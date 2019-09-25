@@ -1,7 +1,7 @@
+import 'package:design/src/domain/model/disciplina.dart';
 import 'package:design/src/ui/colors/minha_escola_colors.dart' as theme;
 import 'package:design/src/ui/dialogs/dialog_factory.dart' as dialogFactory;
 import 'package:design/src/ui/dialogs/my_dialog.dart';
-import 'package:design/src/ui/perfil/admin/disciplinas/disciplinas_admin_page.dart';
 import 'package:design/src/ui/perfil/admin/tipos_de_tarefa/tipos_da_tarefa.dart';
 import 'package:design/src/ui/widgets/header_pages_admin.dart';
 import 'package:design/src/ui/widgets/my_wrap.dart';
@@ -31,10 +31,11 @@ class _TarefasAdminPageState extends State<TarefasAdminPage> {
   Disciplina _disciplina;
 
   List<Disciplina> _disciplinas = [
-    Disciplina("Matemática", "José da Silva"),
-    Disciplina("Português", "Maria da Silva"),
-    Disciplina("Geografia", "Camila da Silva"),
-    Disciplina("Ciências", "André da Silva")
+    Disciplina(nome: "Português", nomeProfessor: ""),
+    Disciplina(nome: "Matemática", nomeProfessor: ""),
+    Disciplina(nome: "Ciências", nomeProfessor: ""),
+    Disciplina(nome: "História", nomeProfessor: ""),
+    Disciplina(nome: "Geografia", nomeProfessor: ""),
   ];
 
   String _tipoTarefaHint = "Tipo de Tarefa";

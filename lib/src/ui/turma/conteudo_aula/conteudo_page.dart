@@ -1,4 +1,5 @@
-import 'package:design/src/ui/turma/conteudo_aula/conteudo_aula_page.dart';
+import 'package:design/src/domain/model/arquivo.dart';
+import 'package:design/src/domain/model/conteudo.dart';
 import 'package:design/src/ui/widgets/my_wrap.dart';
 import 'package:flutter/material.dart';
 

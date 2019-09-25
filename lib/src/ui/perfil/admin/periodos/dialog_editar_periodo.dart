@@ -1,5 +1,5 @@
+import 'package:design/src/domain/model/periodo.dart';
 import 'package:design/src/ui/colors/minha_escola_colors.dart' as theme;
-import 'package:design/src/ui/perfil/admin/avaliacoes/avaliacoes_admin_page.dart';
 import 'package:intl/intl.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
 import 'package:flutter/material.dart';

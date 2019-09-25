@@ -1,8 +1,12 @@
+import 'package:design/src/domain/model/disciplina.dart';
+import 'package:design/src/domain/model/tarefa.dart';
 import 'package:design/src/ui/dialogs/my_dialog.dart';
 import 'package:design/src/ui/perfil/admin/disciplinas/disciplinas_admin_page.dart';
-import 'package:design/src/ui/perfil/admin/tipos_de_tarefa/tipos_da_tarefa.dart';
-import 'package:design/src/ui/widgets/header_pages_admin.dart';
+import 'package:design/src/ui/turma/tarefas/dialog_adicionar_tarefa.dart';
+import 'package:design/src/ui/turma/tarefas/dialog_editar_tarefa.dart';
+import 'package:design/src/ui/widgets/header_pages.dart';
 import 'package:design/src/ui/widgets/my_wrap.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:design/src/ui/dialogs/dialog_factory.dart' as dialogFactory;
 import 'package:design/src/ui/colors/minha_escola_colors.dart' as theme;
@@ -15,37 +19,21 @@ class TarefasPage extends StatefulWidget {
 class _TarefasPageState extends State<TarefasPage> {
   List<Tarefa> _tarefas = [
     Tarefa(
-        descricao: "Prova G1",
-        disciplina: "Português",
-        tipoTarefa: "Prova",
-        data: "6 Setembro"),
-    Tarefa(
         descricao: "Trigonometria",
         disciplina: "Matemática",
         tipoTarefa: "Trabalho",
-        data: "6 Maio"),
+        data: "25 de setembro"),
+    Tarefa(
+        descricao: "Prova G1",
+        disciplina: "Português",
+        tipoTarefa: "Prova",
+        data: "6 de setembro"),
   ];
 
   String _disciplinaHint = "Disciplina";
 
   Disciplina _disciplina;
 
-  List<Disciplina> _disciplinas = [
-    Disciplina("Matemática", "José da Silva"),
-    Disciplina("Português", "Maria da Silva"),
-    Disciplina("Geografia", "Camila da Silva"),
-    Disciplina("Ciências", "André da Silva")
-  ];
-
-  String _tipoTarefaHint = "Tipo de Tarefa";
-
-  TipoTarefa _tipoTarefa;
-
-  List<TipoTarefa> _tiposTarefa = [
-    TipoTarefa(descricao: "Prova"),
-    TipoTarefa(descricao: "Trabalho"),
-    TipoTarefa(descricao: "Lição de Casa"),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +46,7 @@ class _TarefasPageState extends State<TarefasPage> {
                 context,
                 MyDialog(
                   title: "Adicionar Tarefa",
-                  content: _buildContentAdicionarTarefa(),
+                  content: DialogAdicionarTarefa(),
                   funConfirmar: _adicionarTarefa,
                 ),
               );
@@ -75,9 +63,9 @@ class _TarefasPageState extends State<TarefasPage> {
         ],
       ),
       body: ListView(children: <Widget>[
-        HeaderPagesAdmin(
-          count: _tarefas.length,
-          title: "Tarefas Cadastradas",
+        HeaderPage(
+          title: "Estas são suas tarefas",
+          subtitle: "Não perca o foco, agende suas tarefas!",
         ),
         ..._tarefas.map((tarefa) {
           return _buildItemTarefa(tarefa);
@@ -107,10 +95,6 @@ class _TarefasPageState extends State<TarefasPage> {
               MyWrap(conteudo: tarefa.disciplina),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
-                child: MyWrap(conteudo: tarefa.tipoTarefa),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
                 child: MyWrap(
                   conteudo: tarefa.data,
                   color: Colors.grey,
@@ -127,7 +111,7 @@ class _TarefasPageState extends State<TarefasPage> {
                     context,
                     MyDialog(
                       title: "Editar Tarefa",
-                      content: _buildContentEditarTarefa(tarefa),
+                      content: DialogEditarTarefa(tarefa: tarefa),
                       funConfirmar: _editarTarefa,
                     ),
                   );
@@ -159,127 +143,6 @@ class _TarefasPageState extends State<TarefasPage> {
     );
   }
 
-  Widget _buildContentAdicionarTarefa() {
-    return Form(
-      child: Column(
-        children: <Widget>[
-          TextFormField(
-            decoration: InputDecoration(labelText: "Descrição"),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text("Disciplina"),
-              DropdownButton(
-                value: _disciplina,
-                hint: Text(_disciplinaHint),
-                onChanged: ((Disciplina disciplinaSelecionada) {
-                  setState(() {
-                    _disciplina = disciplinaSelecionada;
-                    _disciplinaHint = _disciplina.nome;
-                  });
-                }),
-                items: _disciplinas
-                    .map(
-                      (disciplina) => DropdownMenuItem(
-                        child: Text(disciplina.nome),
-                        value: disciplina,
-                      ),
-                    )
-                    .toList(),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text("Tipo de Tarefa"),
-              DropdownButton(
-                value: _tipoTarefa,
-                hint: Text(_tipoTarefaHint),
-                onChanged: ((TipoTarefa tipoTarefaSelecionado) {
-                  setState(() {
-                    _tipoTarefa = tipoTarefaSelecionado;
-                    _tipoTarefaHint = _tipoTarefa.descricao;
-                  });
-                }),
-                items: _tiposTarefa
-                    .map(
-                      (tipoTarefa) => DropdownMenuItem(
-                        child: Text(tipoTarefa.descricao),
-                        value: tipoTarefa,
-                      ),
-                    )
-                    .toList(),
-              ),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget _buildContentEditarTarefa(Tarefa tarefa) {
-    return Form(
-      child: Column(
-        children: <Widget>[
-          TextFormField(
-            initialValue: tarefa.descricao,
-            decoration: InputDecoration(labelText: "Descrição"),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text("Disciplina"),
-              DropdownButton(
-                value: _disciplina,
-                hint: Text(tarefa.disciplina),
-                onChanged: ((Disciplina disciplinaSelecionada) {
-                  setState(() {
-                    _disciplina = disciplinaSelecionada;
-                    _disciplinaHint = _disciplina.nome;
-                  });
-                }),
-                items: _disciplinas
-                    .map(
-                      (disciplina) => DropdownMenuItem(
-                        child: Text(disciplina.nome),
-                        value: disciplina,
-                      ),
-                    )
-                    .toList(),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text("Tipo de Tarefa"),
-              DropdownButton(
-                value: _tipoTarefa,
-                hint: Text(tarefa.tipoTarefa),
-                onChanged: ((TipoTarefa tipoTarefaSelecionado) {
-                  setState(() {
-                    _tipoTarefa = tipoTarefaSelecionado;
-                    _tipoTarefaHint = _tipoTarefa.descricao;
-                  });
-                }),
-                items: _tiposTarefa
-                    .map(
-                      (tipoTarefa) => DropdownMenuItem(
-                        child: Text(tipoTarefa.descricao),
-                        value: tipoTarefa,
-                      ),
-                    )
-                    .toList(),
-              ),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-
   Widget _buildContentExcluirTarefa() {
     return Text("Deseja realmente excluir esta tarefa?");
   }
@@ -295,13 +158,4 @@ class _TarefasPageState extends State<TarefasPage> {
   Function get _excluirTarefa => () {
         Navigator.pop(context);
       };
-}
-
-class Tarefa {
-  String descricao;
-  String disciplina;
-  String tipoTarefa;
-  String data;
-
-  Tarefa({this.descricao, this.disciplina, this.tipoTarefa, this.data});
 }

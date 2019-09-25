@@ -1,6 +1,9 @@
+import 'package:design/src/domain/model/avaliacao.dart';
+
 class Disciplina {
-  int id;
   String nome;
   String nomeProfessor;
-  int idTurma;
+  List<Avaliacao> avaliacoes;
+
+  Disciplina({this.nome, this.nomeProfessor, this.avaliacoes});
 }

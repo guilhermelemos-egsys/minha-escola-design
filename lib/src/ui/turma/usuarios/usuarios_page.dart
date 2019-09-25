@@ -1,6 +1,6 @@
-import 'package:design/src/ui/dialogs/my_dialog.dart';
+import 'package:design/src/domain/model/usuario.dart';
 import 'package:design/src/ui/dialogs/my_dialog_visualizacao.dart';
-import 'package:design/src/ui/perfil/admin/usuarios/usuarios_admin_page.dart';
+import 'package:design/src/ui/widgets/header_pages.dart';
 import 'package:design/src/ui/widgets/header_pages_admin.dart';
 import 'package:flutter/material.dart';
 import 'package:design/src/ui/dialogs/dialog_factory.dart' as dialogFactory;
@@ -35,9 +35,9 @@ class _UsuariosPageState extends State<UsuariosPage> {
       ),
       body: ListView(
         children: <Widget>[
-          HeaderPagesAdmin(
-            count: _usuarios.length,
-            title: "Usuários vinculados à esta turma",
+          HeaderPage(
+            title: "Usuários da Turma 17A",
+            subtitle: "Aqui estão seus colegas!",
           ),
           ..._usuarios.map((usuario) {
             return _buildItemUsuario(usuario);

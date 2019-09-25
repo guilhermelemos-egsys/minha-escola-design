@@ -1,6 +1,6 @@
+import 'package:design/src/domain/model/aviso.dart';
 import 'package:design/src/ui/widgets/header_pages.dart';
 import 'package:design/src/ui/widgets/my_expansion_tile.dart';
-import 'package:design/src/ui/widgets/my_wrap.dart';
 import 'package:flutter/material.dart';
 
 class AvisosPage extends StatefulWidget {
@@ -11,17 +11,17 @@ class AvisosPage extends StatefulWidget {
 class _AvisosPageState extends State<AvisosPage> {
   List<Aviso> _avisos = [
     Aviso(
-        "Guilherme Lemos",
-        "Prova de Matemática",
-        "Teremos prova de matemática dia 13/09 valendo "
+        usuario: "Guilherme Lemos",
+        titulo: "Prova de Matemática",
+        conteudo: "Teremos prova de matemática dia 13/09 valendo "
         "4 pontos. A prova será sobre o conteúdo tal.",
-        "3 Setembro"),
+        data: "25 de setembro"),
     Aviso(
-        "Guilherme Lemos",
-        "Trabalho de História",
-        "Teremos um trabalho de história valendo 2 pontos. Será em grupo, cada grupo "
+        usuario: "Guilherme Lemos",
+        titulo: "Trabalho de História",
+        conteudo: "Teremos um trabalho de história valendo 2 pontos. Será em grupo, cada grupo "
         "terá no máximo 4 integrantes. A entrega é dia 23/09",
-        "3 Setembro"),
+        data: "16 de setembro"),
   ];
   @override
   Widget build(BuildContext context) {
@@ -57,19 +57,7 @@ class _AvisosPageState extends State<AvisosPage> {
               children: <Widget>[
                 Text(aviso.titulo, style: Theme.of(context).textTheme.title),
                 SizedBox(height: 4.0),
-                Row(
-                  children: <Widget>[
-                    Text("Postado por ${aviso.usuario}, em",
-                        style: Theme.of(context).textTheme.subhead),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 2.0),
-                      child: MyWrap(
-                        conteudo: aviso.data,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
+                Text("Postado por ${aviso.usuario}"),
               ],
             ),
           ),
@@ -119,13 +107,4 @@ class _AvisosPageState extends State<AvisosPage> {
       ),
     );
   }
-}
-
-class Aviso {
-  String usuario;
-  String titulo;
-  String conteudo;
-  String data;
-
-  Aviso(this.usuario, this.titulo, this.conteudo, this.data);
 }

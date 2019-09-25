@@ -37,7 +37,6 @@ class _AcessarTurmaPageState extends State<AcessarTurmaPage> {
         padding: const EdgeInsets.all(8.0),
         children: <Widget>[
           _buildItemTurma(),
-          _buildItemTurma(),
         ],
       ),
     );
@@ -120,14 +119,14 @@ class _AcessarTurmaPageState extends State<AcessarTurmaPage> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             Text(
-              "Guilherme Lemos",
+              "Maria Fernanda",
               style: Theme.of(context)
                   .textTheme
                   .title
                   .copyWith(color: theme.secondaryTextColor),
             ),
             Text(
-              "Administrador",
+              "Administrador(a)",
               style: Theme.of(context)
                   .textTheme
                   .subhead
