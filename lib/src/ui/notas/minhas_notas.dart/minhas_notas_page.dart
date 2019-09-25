@@ -2,11 +2,14 @@ import 'package:design/src/domain/model/avaliacao.dart';
 import 'package:design/src/domain/model/disciplina.dart';
 import 'package:design/src/domain/model/nota.dart';
 import 'package:design/src/domain/model/periodo.dart';
+import 'package:design/src/ui/dialogs/my_dialog.dart';
 import 'package:design/src/ui/widgets/custom_shape_clipper.dart';
 import 'package:design/src/ui/widgets/my_expansion_tile.dart';
 import 'package:design/src/ui/widgets/my_wrap.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:design/src/ui/dialogs/dialog_factory.dart' as dialogFactory;
+import 'package:design/src/ui/colors/minha_escola_colors.dart' as theme;
 
 class MinhasNotasPage extends StatefulWidget {
   @override
@@ -241,14 +244,118 @@ class _MinhasNotasPageState extends State<MinhasNotasPage> {
         children: <Widget>[
           Text(avaliacao.descricao, style: Theme.of(context).textTheme.subhead),
           avaliacao.nota != null
-              ? MyWrap(conteudo: avaliacao.nota.valor.toString())
-              : InkWell(
-                  borderRadius: BorderRadius.circular(8.0),
-                  onTap: () {},
-                  child: MyWrap(conteudo: "Adicionar Nota", color: Colors.red)
+              ? Row(
+                  children: <Widget>[
+                    InkWell(
+                      borderRadius: BorderRadius.circular(8.0),
+                      onTap: () {
+                        _showDialogEditarNota(avaliacao);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: CircleAvatar(
+                          radius: 10.0,
+                          backgroundColor: Colors.grey[700],
+                          child: Icon(Icons.edit, size: 12.0),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      borderRadius: BorderRadius.circular(8.0),
+                      onTap: () {
+                        _showDialogExcluirNota();
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: CircleAvatar(
+                          radius: 10.0,
+                          backgroundColor: Colors.grey[700],
+                          child: Icon(Icons.delete, size: 12.0),
+                        ),
+                      ),
+                    ),
+                    MyWrap(conteudo: avaliacao.nota.valor.toString())
+                  ],
                 )
+              : InkWell(
+                      borderRadius: BorderRadius.circular(8.0),
+                      onTap: () {
+                        _showDialogEditarNota(avaliacao);
+                      },
+                      child: MyWrap(conteudo: "Adicionar Nota", color: Colors.red)
+                    ),
         ],
       ),
     );
   }
+
+  void _showDialogAdicionarNota() {
+    dialogFactory.showDialog(
+      context,
+      MyDialog(
+        title: "Adicionar Nota",
+        content: _buildContentAdicionarNota(),
+        funConfirmar: _excluirNota,
+      ),
+    );
+  }
+
+  Widget _buildContentAdicionarNota() {
+    return Form(
+      child: TextFormField(
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(labelText: "Nota"),
+      ),
+    );
+  }
+
+  Function get _adicionarNota => () {
+        Navigator.pop(context);
+      };
+
+  void _showDialogEditarNota(Avaliacao avaliacao) {
+    dialogFactory.showDialog(
+      context,
+      MyDialog(
+        title: "Editar Nota",
+        content: _buildContentEditarNota(avaliacao),
+        funConfirmar: _editarNota,
+      ),
+    );
+  }
+
+  Widget _buildContentEditarNota(Avaliacao avaliacao) {
+    return Form(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          TextFormField(
+            initialValue: avaliacao.nota.valor.toString(),
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(labelText: "Nota"),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Function get _editarNota => () {
+        Navigator.pop(context);
+      };
+
+  void _showDialogExcluirNota() {
+    dialogFactory.showDialog(
+      context,
+      MyDialog(
+        title: "Excluir Nota",
+        content: Text("Deseja realmente excluir esta nota?"),
+        funConfirmar: _excluirNota,
+        corBotaoConfirmar: Colors.red,
+      ),
+    );
+  }
+
+  Function get _excluirNota => () {
+        Navigator.pop(context);
+      };
 }

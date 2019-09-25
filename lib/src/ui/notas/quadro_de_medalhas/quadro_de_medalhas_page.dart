@@ -1,9 +1,6 @@
 import 'package:design/src/domain/model/avaliacao.dart';
 import 'package:design/src/domain/model/disciplina.dart';
-import 'package:design/src/domain/model/nota.dart';
 import 'package:design/src/domain/model/periodo.dart';
-import 'package:design/src/ui/perfil/admin/avaliacoes/avaliacoes_admin_page.dart';
-import 'package:design/src/ui/widgets/custom_shape_clipper.dart';
 import 'package:design/src/ui/widgets/header_pages.dart';
 import 'package:flutter/material.dart';
 

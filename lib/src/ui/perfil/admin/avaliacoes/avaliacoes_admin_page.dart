@@ -1,6 +1,5 @@
 import 'package:design/src/domain/model/avaliacao.dart';
 import 'package:design/src/domain/model/disciplina.dart';
-import 'package:design/src/domain/model/nota.dart';
 import 'package:design/src/domain/model/periodo.dart';
 import 'package:design/src/ui/colors/minha_escola_colors.dart' as theme;
 import 'package:design/src/ui/dialogs/dialog_factory.dart' as dialogFactory;
