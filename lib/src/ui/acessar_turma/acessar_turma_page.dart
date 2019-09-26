@@ -93,7 +93,7 @@ class _AcessarTurmaPageState extends State<AcessarTurmaPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text(
-              "Turma 17A",
+              "Turma 17B",
               style: Theme.of(context)
                   .textTheme
                   .headline
@@ -119,7 +119,7 @@ class _AcessarTurmaPageState extends State<AcessarTurmaPage> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             Text(
-              "Maria Fernanda",
+              "Maria Fernanda Lima",
               style: Theme.of(context)
                   .textTheme
                   .title

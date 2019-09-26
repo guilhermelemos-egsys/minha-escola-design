@@ -15,11 +15,17 @@ class _DialogAdicionarTarefaState extends State<DialogAdicionarTarefa> {
   Disciplina _disciplina;
 
   List<Disciplina> _disciplinas = [
-    Disciplina(nome: "Português", nomeProfessor: ""),
-    Disciplina(nome: "Matemática", nomeProfessor: ""),
-    Disciplina(nome: "Ciências", nomeProfessor: ""),
-    Disciplina(nome: "História", nomeProfessor: ""),
-    Disciplina(nome: "Geografia", nomeProfessor: ""),
+    Disciplina(nome: "Português", nomeProfessor: "Daniela"),
+    Disciplina(nome: "Matemática", nomeProfessor: "Fernanda"),
+    Disciplina(nome: "Ciências", nomeProfessor: "Alexandra"),
+    Disciplina(nome: "História", nomeProfessor: "Paula"),
+    Disciplina(nome: "Geografia", nomeProfessor: "Márcio"),
+    Disciplina(nome: "Redação", nomeProfessor: "Bianca"),
+    Disciplina(nome: "Educação Física", nomeProfessor: "Samuel"),
+    Disciplina(nome: "Inglês", nomeProfessor: "André"),
+    Disciplina(nome: "Filosofia", nomeProfessor: "Airton"),
+    Disciplina(nome: "Religião", nomeProfessor: "Roberto"),
+    Disciplina(nome: "Artes", nomeProfessor: "Juliane")
   ];
 
   String data;

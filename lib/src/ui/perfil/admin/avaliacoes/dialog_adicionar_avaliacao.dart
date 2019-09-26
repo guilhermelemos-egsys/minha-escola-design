@@ -21,11 +21,17 @@ class _DialogAdicionarAvaliacaoState extends State<DialogAdicionarAvaliacao> {
   @override
   void initState() {
     _disciplinas = [
-      Disciplina(nome: "Português"),
-      Disciplina(nome: "Matemática"),
-      Disciplina(nome: "Ciências"),
-      Disciplina(nome: "História"),
-      Disciplina(nome: "Geografia")
+      Disciplina(nome: "Português", nomeProfessor: "Daniela"),
+    Disciplina(nome: "Matemática", nomeProfessor: "Fernanda"),
+    Disciplina(nome: "Ciências", nomeProfessor: "Alexandra"),
+    Disciplina(nome: "História", nomeProfessor: "Paula"),
+    Disciplina(nome: "Geografia", nomeProfessor: "Márcio"),
+    Disciplina(nome: "Redação", nomeProfessor: "Bianca"),
+    Disciplina(nome: "Educação Física", nomeProfessor: "Samuel"),
+    Disciplina(nome: "Inglês", nomeProfessor: "André"),
+    Disciplina(nome: "Filosofia", nomeProfessor: "Airton"),
+    Disciplina(nome: "Religião", nomeProfessor: "Roberto"),
+    Disciplina(nome: "Artes", nomeProfessor: "Juliane")
     ];
 
     _periodos = [

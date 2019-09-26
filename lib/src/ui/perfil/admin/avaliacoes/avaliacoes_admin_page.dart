@@ -36,11 +36,34 @@ class _AvaliacoesAdminPageState extends State<AvaliacoesAdminPage> {
     ];
 
     _disciplinas = [
-      Disciplina(nome: "Português", avaliacoes: _avaliacoes),
-      Disciplina(nome: "Matemática", avaliacoes: _avaliacoes),
-      Disciplina(nome: "Ciências", avaliacoes: _avaliacoes),
-      Disciplina(nome: "História", avaliacoes: _avaliacoes),
-      Disciplina(nome: "Geografia", avaliacoes: _avaliacoes)
+      Disciplina(
+          nome: "Português", nomeProfessor: "Daniela", avaliacoes: _avaliacoes),
+      Disciplina(
+          nome: "Matemática",
+          nomeProfessor: "Fernanda",
+          avaliacoes: _avaliacoes),
+      Disciplina(
+          nome: "Ciências",
+          nomeProfessor: "Alexandra",
+          avaliacoes: _avaliacoes),
+      Disciplina(
+          nome: "História", nomeProfessor: "Paula", avaliacoes: _avaliacoes),
+      Disciplina(
+          nome: "Geografia", nomeProfessor: "Márcio", avaliacoes: _avaliacoes),
+      Disciplina(
+          nome: "Redação", nomeProfessor: "Bianca", avaliacoes: _avaliacoes),
+      Disciplina(
+          nome: "Educação Física",
+          nomeProfessor: "Samuel",
+          avaliacoes: _avaliacoes),
+      Disciplina(
+          nome: "Inglês", nomeProfessor: "André", avaliacoes: _avaliacoes),
+      Disciplina(
+          nome: "Filosofia", nomeProfessor: "Airton", avaliacoes: _avaliacoes),
+      Disciplina(
+          nome: "Religião", nomeProfessor: "Roberto", avaliacoes: _avaliacoes),
+      Disciplina(
+          nome: "Artes", nomeProfessor: "Juliane", avaliacoes: _avaliacoes)
     ];
 
     _periodos = [

@@ -39,11 +39,17 @@ class _BoletimPageState extends State<BoletimPage> {
     ];
 
     _disciplinas = [
-      Disciplina(nome: "Português", avaliacoes: _avaliacoes),
-      Disciplina(nome: "Matemática", avaliacoes: _avaliacoes),
-      Disciplina(nome: "Ciências", avaliacoes: _avaliacoes),
-      Disciplina(nome: "História", avaliacoes: _avaliacoes),
-      Disciplina(nome: "Geografia", avaliacoes: _avaliacoes)
+      Disciplina(nome: "Português", nomeProfessor: "Daniela", avaliacoes: _avaliacoes),
+    Disciplina(nome: "Matemática", nomeProfessor: "Fernanda", avaliacoes: _avaliacoes),
+    Disciplina(nome: "Ciências", nomeProfessor: "Alexandra", avaliacoes: _avaliacoes),
+    Disciplina(nome: "História", nomeProfessor: "Paula", avaliacoes: _avaliacoes),
+    Disciplina(nome: "Geografia", nomeProfessor: "Márcio", avaliacoes: _avaliacoes),
+    Disciplina(nome: "Redação", nomeProfessor: "Bianca", avaliacoes: _avaliacoes),
+    Disciplina(nome: "Educação Física", nomeProfessor: "Samuel", avaliacoes: _avaliacoes),
+    Disciplina(nome: "Inglês", nomeProfessor: "André", avaliacoes: _avaliacoes),
+    Disciplina(nome: "Filosofia", nomeProfessor: "Airton", avaliacoes: _avaliacoes),
+    Disciplina(nome: "Religião", nomeProfessor: "Roberto", avaliacoes: _avaliacoes),
+    Disciplina(nome: "Artes", nomeProfessor: "Juliane", avaliacoes: _avaliacoes)
     ];
 
     _periodos = [
@@ -70,7 +76,13 @@ class _BoletimPageState extends State<BoletimPage> {
           _buildItemDisciplinaMatematica(),
           _buildItemDisciplinaCiencias(),
           _buildItemDisciplinaHistoria(),
-          _buildItemDisciplinaGeografia()
+          _buildItemDisciplinaGeografia(),
+          _buildItemDisciplinaRedacao(),
+          _buildItemDisciplinaEducacaoFisica(),
+          _buildItemDisciplinaIngles(),
+          _buildItemDisciplinaFilosofia(),
+          _buildItemDisciplinaReligiao(),
+          _buildItemDisciplinaArtes()
         ],
       ),
     );
@@ -273,6 +285,282 @@ class _BoletimPageState extends State<BoletimPage> {
             children: <Widget>[
               Text(
                 "Geografia",
+                style: Theme.of(context).textTheme.title,
+              ),
+              Spacer(),
+              Column(
+                children: <Widget>[
+                  Text("1º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "8.8")
+                ],
+              ),
+              SizedBox(width: 16.0),
+              Column(
+                children: <Widget>[
+                  Text("2º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "9.7")
+                ],
+              ),
+              SizedBox(width: 16.0),
+              Column(
+                children: <Widget>[
+                  Text("3º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "-")
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildItemDisciplinaRedacao() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+      child: Card(
+        elevation: 3,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+        child: Container(
+          padding: const EdgeInsets.only(
+              left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
+          child: Row(
+            children: <Widget>[
+              Text(
+                "Redação",
+                style: Theme.of(context).textTheme.title,
+              ),
+              Spacer(),
+              Column(
+                children: <Widget>[
+                  Text("1º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "8.9")
+                ],
+              ),
+              SizedBox(width: 16.0),
+              Column(
+                children: <Widget>[
+                  Text("2º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "10")
+                ],
+              ),
+              SizedBox(width: 16.0),
+              Column(
+                children: <Widget>[
+                  Text("3º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "-")
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildItemDisciplinaEducacaoFisica() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+      child: Card(
+        elevation: 3,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+        child: Container(
+          padding: const EdgeInsets.only(
+              left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
+          child: Row(
+            children: <Widget>[
+              Text(
+                "Educação Física",
+                style: Theme.of(context).textTheme.title,
+              ),
+              Spacer(),
+              Column(
+                children: <Widget>[
+                  Text("1º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "10")
+                ],
+              ),
+              SizedBox(width: 16.0),
+              Column(
+                children: <Widget>[
+                  Text("2º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "10")
+                ],
+              ),
+              SizedBox(width: 16.0),
+              Column(
+                children: <Widget>[
+                  Text("3º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "-")
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildItemDisciplinaIngles() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+      child: Card(
+        elevation: 3,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+        child: Container(
+          padding: const EdgeInsets.only(
+              left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
+          child: Row(
+            children: <Widget>[
+              Text(
+                "Inglês",
+                style: Theme.of(context).textTheme.title,
+              ),
+              Spacer(),
+              Column(
+                children: <Widget>[
+                  Text("1º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "10")
+                ],
+              ),
+              SizedBox(width: 16.0),
+              Column(
+                children: <Widget>[
+                  Text("2º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "8.6")
+                ],
+              ),
+              SizedBox(width: 16.0),
+              Column(
+                children: <Widget>[
+                  Text("3º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "-")
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildItemDisciplinaFilosofia() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+      child: Card(
+        elevation: 3,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+        child: Container(
+          padding: const EdgeInsets.only(
+              left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
+          child: Row(
+            children: <Widget>[
+              Text(
+                "Filosofia",
+                style: Theme.of(context).textTheme.title,
+              ),
+              Spacer(),
+              Column(
+                children: <Widget>[
+                  Text("1º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "7.9")
+                ],
+              ),
+              SizedBox(width: 16.0),
+              Column(
+                children: <Widget>[
+                  Text("2º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "10")
+                ],
+              ),
+              SizedBox(width: 16.0),
+              Column(
+                children: <Widget>[
+                  Text("3º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "-")
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildItemDisciplinaReligiao() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+      child: Card(
+        elevation: 3,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+        child: Container(
+          padding: const EdgeInsets.only(
+              left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
+          child: Row(
+            children: <Widget>[
+              Text(
+                "Religião",
+                style: Theme.of(context).textTheme.title,
+              ),
+              Spacer(),
+              Column(
+                children: <Widget>[
+                  Text("1º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "8.8")
+                ],
+              ),
+              SizedBox(width: 16.0),
+              Column(
+                children: <Widget>[
+                  Text("2º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "9.7")
+                ],
+              ),
+              SizedBox(width: 16.0),
+              Column(
+                children: <Widget>[
+                  Text("3º Trim.", style: Theme.of(context).textTheme.body2),
+                  SizedBox(height: 4.0),
+                  MyWrap(conteudo: "-")
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildItemDisciplinaArtes() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+      child: Card(
+        elevation: 3,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+        child: Container(
+          padding: const EdgeInsets.only(
+              left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
+          child: Row(
+            children: <Widget>[
+              Text(
+                "Artes",
                 style: Theme.of(context).textTheme.title,
               ),
               Spacer(),

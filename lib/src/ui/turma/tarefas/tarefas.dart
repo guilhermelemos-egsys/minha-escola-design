@@ -19,15 +19,25 @@ class TarefasPage extends StatefulWidget {
 class _TarefasPageState extends State<TarefasPage> {
   List<Tarefa> _tarefas = [
     Tarefa(
-        descricao: "Trigonometria",
-        disciplina: "Matemática",
+        descricao: "Tema de Português pág. 61",
+        disciplina: "Português",
         tipoTarefa: "Trabalho",
-        data: "25 de setembro"),
+        data: "26 de setembro"),
     Tarefa(
-        descricao: "Prova G1",
+        descricao: "Tema de Inglês pág. WB 82",
+        disciplina: "Inglês",
+        tipoTarefa: "Prova",
+        data: "27 de setembro"),
+    Tarefa(
+        descricao: "Prova de Português",
         disciplina: "Português",
         tipoTarefa: "Prova",
-        data: "6 de setembro"),
+        data: "15 de outubro"),
+    Tarefa(
+        descricao: "Trabalho de Redação",
+        disciplina: "Redação",
+        tipoTarefa: "Prova",
+        data: "27 de outubro"),
   ];
 
   String _disciplinaHint = "Disciplina";

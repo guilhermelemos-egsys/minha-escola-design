@@ -24,12 +24,12 @@ class _ForumPageState extends State<ForumPage> {
           titulo: "P1 de História",
           conteudo:
               "Gente, alguém sabe qual o conteúdo da P1 de História e que dia vai ser?",
-          usuario: "Juliana",
+          usuario: "Juliana Ederich",
           dataPostagem: DateTime.now(),
           comentarios: [
-            Comentario(conteudo: "...", usuario: "Maria Fernanda"),
-            Comentario(conteudo: "...", usuario: "Nathalie"),
-            Comentario(conteudo: "...", usuario: "Mariana")
+            Comentario(conteudo: "De novo Ju?", usuario: "Maria Fernanda Lima"),
+            Comentario(conteudo: "Tu não estava na aula?", usuario: "Nathalie Bastos"),
+            Comentario(conteudo: "Europa Moderna", usuario: "Mariana Salvador")
           ])
     ];
     super.initState();

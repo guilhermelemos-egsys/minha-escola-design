@@ -91,11 +91,17 @@ class _MinhasNotasPageState extends State<MinhasNotasPage> {
     ];
 
     _disciplinas = [
-      Disciplina(nome: "Português", avaliacoes: _avaliacoesPortugues),
-      Disciplina(nome: "Matemática", avaliacoes: _avaliacoesMatematica),
-      Disciplina(nome: "Ciências", avaliacoes: _avaliacoesCiencias),
-      Disciplina(nome: "História", avaliacoes: _avaliacoesHistoria),
-      Disciplina(nome: "Geografia", avaliacoes: _avaliacoesGeografia)
+      Disciplina(nome: "Português", nomeProfessor: "Daniela", avaliacoes: _avaliacoesPortugues),
+    Disciplina(nome: "Matemática", nomeProfessor: "Fernanda", avaliacoes: _avaliacoesMatematica),
+    Disciplina(nome: "Ciências", nomeProfessor: "Alexandra", avaliacoes: _avaliacoesCiencias),
+    Disciplina(nome: "História", nomeProfessor: "Paula", avaliacoes: _avaliacoesHistoria),
+    Disciplina(nome: "Geografia", nomeProfessor: "Márcio", avaliacoes: _avaliacoesGeografia),
+    Disciplina(nome: "Redação", nomeProfessor: "Bianca", avaliacoes: _avaliacoesPortugues),
+    Disciplina(nome: "Educação Física", nomeProfessor: "Samuel", avaliacoes: _avaliacoesMatematica),
+    Disciplina(nome: "Inglês", nomeProfessor: "André", avaliacoes: _avaliacoesCiencias),
+    Disciplina(nome: "Filosofia", nomeProfessor: "Airton", avaliacoes: _avaliacoesHistoria),
+    Disciplina(nome: "Religião", nomeProfessor: "Roberto", avaliacoes: _avaliacoesGeografia),
+    Disciplina(nome: "Artes", nomeProfessor: "Juliane", avaliacoes: _avaliacoesPortugues)
     ];
 
     _periodos = [
@@ -280,7 +286,7 @@ class _MinhasNotasPageState extends State<MinhasNotasPage> {
               : InkWell(
                       borderRadius: BorderRadius.circular(8.0),
                       onTap: () {
-                        _showDialogEditarNota(avaliacao);
+                        _showDialogAdicionarNota();
                       },
                       child: MyWrap(conteudo: "Adicionar Nota", color: Colors.red)
                     ),
@@ -295,7 +301,7 @@ class _MinhasNotasPageState extends State<MinhasNotasPage> {
       MyDialog(
         title: "Adicionar Nota",
         content: _buildContentAdicionarNota(),
-        funConfirmar: _excluirNota,
+        funConfirmar: _adicionarNota,
       ),
     );
   }
@@ -303,7 +309,7 @@ class _MinhasNotasPageState extends State<MinhasNotasPage> {
   Widget _buildContentAdicionarNota() {
     return Form(
       child: TextFormField(
-        keyboardType: TextInputType.number,
+        keyboardType: TextInputType.numberWithOptions(decimal: true),
         decoration: InputDecoration(labelText: "Nota"),
       ),
     );

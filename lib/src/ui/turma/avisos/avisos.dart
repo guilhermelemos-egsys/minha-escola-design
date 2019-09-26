@@ -11,17 +11,22 @@ class AvisosPage extends StatefulWidget {
 class _AvisosPageState extends State<AvisosPage> {
   List<Aviso> _avisos = [
     Aviso(
-        usuario: "Guilherme Lemos",
+        usuario: "Maria Fernanda Lima",
         titulo: "Prova de Matemática",
-        conteudo: "Teremos prova de matemática dia 13/09 valendo "
-        "4 pontos. A prova será sobre o conteúdo tal.",
-        data: "25 de setembro"),
+        conteudo: "Teremos prova de Matemática dia 07/10.",
+        data: "26 de setembro"),
     Aviso(
-        usuario: "Guilherme Lemos",
-        titulo: "Trabalho de História",
-        conteudo: "Teremos um trabalho de história valendo 2 pontos. Será em grupo, cada grupo "
-        "terá no máximo 4 integrantes. A entrega é dia 23/09",
-        data: "16 de setembro"),
+        usuario: "Maria Fernanda Lima",
+        titulo: "Prova de Geografia",
+        conteudo:
+            "Teremos prova de Geografia dia 10/10, sobre o conteúdo Região Sul e Região Nordeste.",
+        data: "26 de setembro"),
+    Aviso(
+        usuario: "Maria Fernanda Lima",
+        titulo: "EXPOCOL",
+        conteudo:
+            "A EXPOCOL inicia às 08:30 e termina às 12:30.",
+        data: "26 de setembro"),
   ];
   @override
   Widget build(BuildContext context) {

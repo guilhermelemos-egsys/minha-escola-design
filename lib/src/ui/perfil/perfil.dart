@@ -2,12 +2,9 @@ import 'package:design/src/domain/model/usuario.dart';
 import 'package:design/src/ui/dialogs/dialog_factory.dart' as dialogFactory;
 import 'package:design/src/domain/model/item_lista_menu.dart';
 import 'package:design/src/ui/dialogs/my_dialog.dart';
-import 'package:design/src/ui/home/home.dart';
 import 'package:design/src/ui/login/login_page.dart';
 import 'package:design/src/ui/perfil/admin/admin_page.dart';
 import 'package:flutter/material.dart';
-
-import 'admin/usuarios/usuarios_admin_page.dart';
 
 class PerfilPage extends StatefulWidget {
   @override
@@ -16,10 +13,10 @@ class PerfilPage extends StatefulWidget {
 
 class _PerfilPageState extends State<PerfilPage> {
   Usuario usuario = Usuario(
-      nome: "Guilherme",
-      sobrenome: "Lemos",
-      email: "guilherme.lemos@gmail.com",
-      login: "guilemos",
+      nome: "Maria Fernanda",
+      sobrenome: "Lima",
+      email: "maria.ribeirolima@soulasalle.com.br",
+      login: "mariafernanda",
       senha: "123456");
 
   List<ItemListaMenu> _itensMenu = [];

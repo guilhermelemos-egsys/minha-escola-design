@@ -65,7 +65,7 @@ class _AdminPageState extends State<AdminPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "Olá, Guilherme!",
+                      "Olá, Maria Fernanda!",
                       style: Theme.of(context)
                           .textTheme
                           .headline

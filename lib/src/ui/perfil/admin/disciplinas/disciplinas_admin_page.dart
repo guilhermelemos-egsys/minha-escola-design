@@ -15,11 +15,17 @@ class DisciplinasAdminPage extends StatefulWidget {
 class _DisciplinasAdminPageState extends State<DisciplinasAdminPage> {
   Color currentColor = Colors.red;
   List<Disciplina> _disciplinas = [
-    Disciplina(nome: "Português", nomeProfessor: "José"),
-    Disciplina(nome: "Matemática", nomeProfessor: "Maria"),
-    Disciplina(nome: "Ciências", nomeProfessor: "Camila"),
-    Disciplina(nome: "História", nomeProfessor: "Marcos"),
-    Disciplina(nome: "Geografia", nomeProfessor: "Alice"),
+    Disciplina(nome: "Português", nomeProfessor: "Daniela"),
+    Disciplina(nome: "Matemática", nomeProfessor: "Fernanda"),
+    Disciplina(nome: "Ciências", nomeProfessor: "Alexandra"),
+    Disciplina(nome: "História", nomeProfessor: "Paula"),
+    Disciplina(nome: "Geografia", nomeProfessor: "Márcio"),
+    Disciplina(nome: "Redação", nomeProfessor: "Bianca"),
+    Disciplina(nome: "Educação Física", nomeProfessor: "Samuel"),
+    Disciplina(nome: "Inglês", nomeProfessor: "André"),
+    Disciplina(nome: "Filosofia", nomeProfessor: "Airton"),
+    Disciplina(nome: "Religião", nomeProfessor: "Roberto"),
+    Disciplina(nome: "Artes", nomeProfessor: "Juliane")
   ];
   @override
   Widget build(BuildContext context) {

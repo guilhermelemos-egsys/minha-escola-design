@@ -2,33 +2,22 @@ PODS:
   - file_picker (0.0.1):
     - Flutter
   - Flutter (1.0.0)
-  - image_cropper (0.0.1):
-    - Flutter
-    - TOCropViewController (~> 2.5.0)
   - image_picker (0.0.1):
     - Flutter
   - permission_handler (3.2.2):
     - Flutter
-  - TOCropViewController (2.5.1)
 
 DEPENDENCIES:
   - file_picker (from `.symlinks/plugins/file_picker/ios`)
   - Flutter (from `.symlinks/flutter/ios`)
-  - image_cropper (from `.symlinks/plugins/image_cropper/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
   - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - TOCropViewController
 
 EXTERNAL SOURCES:
   file_picker:
     :path: ".symlinks/plugins/file_picker/ios"
   Flutter:
     :path: ".symlinks/flutter/ios"
-  image_cropper:
-    :path: ".symlinks/plugins/image_cropper/ios"
   image_picker:
     :path: ".symlinks/plugins/image_picker/ios"
   permission_handler:
@@ -37,10 +26,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   file_picker: 408623be2125b79a4539cf703be3d4b3abe5e245
   Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
-  image_cropper: f25bdfbf1ef970c9a0a0f78306fb6a0aaac7229e
   image_picker: 16e5fec1fbc87fd3b297c53e4048521eaf17cd06
   permission_handler: d59f41439f5bc6c4d1005f3355e98f05ddc68ece
-  TOCropViewController: 00dc36c4e4a0f4a45efa91adbf22df8a4fae01d3
 
 PODFILE CHECKSUM: 7fb83752f59ead6285236625b82473f90b1cb932
 

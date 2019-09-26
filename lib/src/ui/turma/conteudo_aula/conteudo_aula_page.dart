@@ -17,28 +17,26 @@ class ConteudoAulaPage extends StatefulWidget {
 class _ConteudoAulaPageState extends State<ConteudoAulaPage> {
   List<Conteudo> _conteudos = [
     Conteudo(
-        titulo: "Foto do Quadro",
-        usuario: "Guilherme Lemos",
-        disciplina: "Matemática",
+        titulo: "Foto do Quadro de Geografia",
+        usuario: "Nathalie Bastos",
+        disciplina: "Geografia",
         arquivos: [
           Arquivo(tag: "conteudo-1-imagem-1", icone: Icons.photo_library),
-          Arquivo(tag: "conteudo-1-imagem-2", icone: Icons.photo_library),
-          Arquivo(tag: "conteudo-1-pdf-1", icone: Icons.picture_as_pdf),
+          Arquivo(tag: "conteudo-1-imagem-2", icone: Icons.photo_library)
         ],
-        data: "3 de setembro"),
+        data: "26 de setembro"),
     Conteudo(
-        titulo: "Foto do Caderno da Luisa",
-        usuario: "Marco Antônio",
+        titulo: "Foto do Caderno da Juliana",
+        usuario: "Juliana Ederich",
         disciplina: "Portugues",
         arquivos: [
-          Arquivo(tag: "conteudo-2-imagem-1", icone: Icons.photo_library),
-          Arquivo(tag: "conteudo-2-pdf-1", icone: Icons.picture_as_pdf)
+          Arquivo(tag: "conteudo-2-imagem-1", icone: Icons.photo_library)
         ],
         data: "3 de setembro"),
     Conteudo(
-        titulo: "Revisão da P1",
-        usuario: "Maria da Silva",
-        disciplina: "Ciências",
+        titulo: "Revisão da P1 de Inglês",
+        usuario: "Maria Fernanda Lima",
+        disciplina: "Inglês",
         arquivos: [
           Arquivo(tag: "conteudo-3-imagem-1", icone: Icons.photo_library)
         ],
@@ -46,11 +44,17 @@ class _ConteudoAulaPageState extends State<ConteudoAulaPage> {
   ];
 
   List<Disciplina> _disciplinas = [
-    Disciplina(nome: "Português", nomeProfessor: ""),
-    Disciplina(nome: "Matemática", nomeProfessor: ""),
-    Disciplina(nome: "Ciências", nomeProfessor: ""),
-    Disciplina(nome: "História", nomeProfessor: ""),
-    Disciplina(nome: "Geografia", nomeProfessor: ""),
+    Disciplina(nome: "Português", nomeProfessor: "Daniela"),
+    Disciplina(nome: "Matemática", nomeProfessor: "Fernanda"),
+    Disciplina(nome: "Ciências", nomeProfessor: "Alexandra"),
+    Disciplina(nome: "História", nomeProfessor: "Paula"),
+    Disciplina(nome: "Geografia", nomeProfessor: "Márcio"),
+    Disciplina(nome: "Redação", nomeProfessor: "Bianca"),
+    Disciplina(nome: "Educação Física", nomeProfessor: "Samuel"),
+    Disciplina(nome: "Inglês", nomeProfessor: "André"),
+    Disciplina(nome: "Filosofia", nomeProfessor: "Airton"),
+    Disciplina(nome: "Religião", nomeProfessor: "Roberto"),
+    Disciplina(nome: "Artes", nomeProfessor: "Juliane")
   ];
 
   @override

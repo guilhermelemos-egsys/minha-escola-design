@@ -14,17 +14,21 @@ class UsuariosPage extends StatefulWidget {
 class _UsuariosPageState extends State<UsuariosPage> {
   List<Usuario> _usuarios = [
     Usuario(
-        nome: "Guilherme",
-        sobrenome: "Lemos",
-        email: "guilherme.lemos@gmail.com"),
+        nome: "Maria Fernanda",
+        sobrenome: "Lima",
+        email: "maria.ribeirolima@soulasalle.com.br"),
     Usuario(
-        nome: "Marco Antônio",
-        sobrenome: "Lentz",
-        email: "marco.lentz@gmail.com"),
+        nome: "Juliana",
+        sobrenome: "Ederich",
+        email: "juliana.ederich@soulasalle.com.br"),
     Usuario(
         nome: "Mariana",
-        sobrenome: "dos Santos Silva",
-        email: "mariana.santos@gmail.com"),
+        sobrenome: "Salvador",
+        email: "mariana.boeira@soulasalle.com.br"),
+    Usuario(
+        nome: "Nathalie",
+        sobrenome: "Bastos",
+        email: "nathalie.bastos@soulasalle.com.br"),
   ];
 
   @override
@@ -36,7 +40,7 @@ class _UsuariosPageState extends State<UsuariosPage> {
       body: ListView(
         children: <Widget>[
           HeaderPage(
-            title: "Usuários da Turma 17A",
+            title: "Usuários da Turma 17B",
             subtitle: "Aqui estão seus colegas!",
           ),
           ..._usuarios.map((usuario) {
